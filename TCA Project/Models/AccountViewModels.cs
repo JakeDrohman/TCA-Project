@@ -79,6 +79,18 @@ namespace TCA_Project.Models
         [Display(Name = "Confirm password")]
         [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
         public string ConfirmPassword { get; set; }
+
+        [Required]
+        [StringLength(50, ErrorMessage = "There is a maximum of 50 characters in your first name")]
+        [DataType(DataType.Text)]
+        [Display(Name = "First Name")]
+        public string FirstName { get; set; }
+
+        [Required]
+        [StringLength(100,ErrorMessage = "There is a maximum of 100 characters in your last name")]
+        [DataType(DataType.Text)]
+        [Display(Name = "Last Name")]
+        public string LastName { get; set; }
     }
 
     public class ResetPasswordViewModel
