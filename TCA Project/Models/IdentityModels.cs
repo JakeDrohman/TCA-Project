@@ -29,5 +29,7 @@ namespace TCA_Project.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<TCA_Project.Models.Customer> Customers { get; set; }
     }
 }
