@@ -53,7 +53,7 @@ namespace TCA_Project.Controllers
         }
 
         //
-        // GET: /Account/Login
+        // GET: /Account/Login did things
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
