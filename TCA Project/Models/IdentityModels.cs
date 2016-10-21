@@ -31,5 +31,9 @@ namespace TCA_Project.Models
         }
 
         public System.Data.Entity.DbSet<TCA_Project.Models.Customer> Customers { get; set; }
+
+        public System.Data.Entity.DbSet<TCA_Project.Models.Address> Addresses { get; set; }
+
+        public System.Data.Entity.DbSet<TCA_Project.Models.PickUpDays> PickUpDays { get; set; }
     }
 }
