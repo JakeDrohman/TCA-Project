@@ -19,5 +19,8 @@ namespace TCA_Project.Models
         [ForeignKey("Customer")]
         public int CustomerID { get; set; }
         public Customer Customer { get; set; }
+        [ForeignKey("PickUpDay")]
+        public int? DayID { get; set; }
+        public PickUpDays PickUpDay { get; set; }
     }
 }
