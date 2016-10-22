@@ -1,19 +1,13 @@
 ﻿<!DOCTYPE html>
 <html>
-
-
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - Dynamic Disposal</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-
+   
 </head>
-
-
-
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -37,15 +31,114 @@
     </div>
     <div class="container body-content">
         @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - Dynamic Disposal, Milwaukee, WI</p>
-        </footer>
-    </div>
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/Scripts/mapapi.js")
     @RenderSection("scripts", required: false)
+
+
+
+        <br />
+        <br/>
+
+        <center><div id="map"></div></center>
+        
+    </div>
+
+
+
+
+
+
+
+
+    <center><div id="floating-panel">
+        <b>Start: </b>
+        <select id="start">
+            <option value="chicago, il">Chicago</option>
+            <option value="st louis, mo">St Louis</option>
+            <option value="joplin, mo">Joplin, MO</option>
+            <option value="oklahoma city, ok">Oklahoma City</option>
+            <option value="amarillo, tx">Amarillo</option>
+            <option value="gallup, nm">Gallup, NM</option>
+            <option value="flagstaff, az">Flagstaff, AZ</option>
+            <option value="winona, az">Winona</option>
+            <option value="kingman, az">Kingman</option>
+            <option value="barstow, ca">Barstow</option>
+            <option value="san bernardino, ca">San Bernardino</option>
+            <option value="los angeles, ca">Los Angeles</option>
+        </select>
+        <b>End: </b>
+        <select id="end">
+            <option value="chicago, il">Chicago</option>
+            <option value="st louis, mo">St Louis</option>
+            <option value="joplin, mo">Joplin, MO</option>
+            <option value="oklahoma city, ok">Oklahoma City</option>
+            <option value="amarillo, tx">Amarillo</option>
+            <option value="gallup, nm">Gallup, NM</option>
+            <option value="flagstaff, az">Flagstaff, AZ</option>
+            <option value="winona, az">Winona</option>
+            <option value="kingman, az">Kingman</option>
+            <option value="barstow, ca">Barstow</option>
+            <option value="san bernardino, ca">San Bernardino</option>
+            <option value="los angeles, ca">Los Angeles</option>
+        </select>
+    </div></center>
+    <center>
+    <div id="map"></div>
+
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDqV1QIBzhA-7EF1MmpWuMCYZ6sfvL-kA&callback=initMap">
+    </script></center>
+
+
+
+    <footer>
+        <p>&copy; @DateTime.Now.Year - Dynamic Disposal, Milwaukee, WI</p>
+    </footer>
+
+
+
+    @*<div id="map"></div>*@
+    <!-- Replace the value of the key parameter with your own API key. -->
+    @*<script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDqV1QIBzhA-7EF1MmpWuMCYZ6sfvL-kA&callback=initMap">
+    </script>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+     @* function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+    </script>*@
+    @*<script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDqV1QIBzhA-7EF1MmpWuMCYZ6sfvL-kA&callback=initMap">
+    </script>*@
+
 </body>
 
 
@@ -53,7 +146,55 @@
 </html>
 
 
-<script type="text/javascript">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<div id="map"></div>
+<script>
+      function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+</script>
+<script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDqV1QIBzhA-7EF1MmpWuMCYZ6sfvL-kA&callback=initMap">
+</script>*@
+
+
+
+@*<script type="text/javascript">
 
 
    $(document).ready(function () {
@@ -75,10 +216,10 @@
        title: 'My Place'
      });
    }
-</script> 
+</script>*@ 
 
 
 
 
-<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDqV1QIBzhA-7EF1MmpWuMCYZ6sfvL-kA&callback=initMap"
-        type="text/javascript"></script>
+@*<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDqV1QIBzhA-7EF1MmpWuMCYZ6sfvL-kA&callback=initMap"
+        type="text/javascript"></script>*@
