@@ -18,7 +18,7 @@ namespace TCA_Project.Models
         public float Zipcode { get; set; }
         [ForeignKey("Customer")]
         public int CustomerID { get; set; }
-        public Customer Customer { get; set; }
+        public Customer Customer  { get; set; }
         [ForeignKey("PickUpDay")]
         public int? DayID { get; set; }
         public PickUpDays PickUpDay { get; set; }
