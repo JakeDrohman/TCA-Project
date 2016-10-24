@@ -13,12 +13,12 @@ namespace TCA_Project.Models
         [Key]
         public int ID { get; set; }
         public string Street { get; set; }
-        public int City { get; set; }
+        public string City { get; set; }
         public string State { get; set; }
         public float Zipcode { get; set; }
-        [ForeignKey("Customer")]
-        public int CustomerID { get; set; }
-        public Customer Customer  { get; set; }
+        [ForeignKey("User")]
+        public string UserID { get; set; }
+        public ApplicationUser User  { get; set; }
         [ForeignKey("PickUpDay")]
         public int? DayID { get; set; }
         public PickUpDays PickUpDay { get; set; }

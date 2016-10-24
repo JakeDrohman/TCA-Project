@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using TCA_Project.Models;
+using Microsoft.AspNet.Identity;
 
 namespace TCA_Project.Controllers
 {
@@ -17,8 +18,10 @@ namespace TCA_Project.Controllers
         // GET: Addresses
         public ActionResult Index()
         {
-            var addresses = db.Addresses.Include(a => a.Customer).Include(a => a.PickUpDay);
+            var addresses = db.Addresses.Include(a => a.User).Include(a => a.PickUpDay);
+            ViewBag.CurrentUserId = (User.Identity.GetUserId());
             return View(addresses.ToList());
+            //return Content(CurrentUserId);
         }
 
         // GET: Addresses/Details/5
@@ -39,7 +42,7 @@ namespace TCA_Project.Controllers
         // GET: Addresses/Create
         public ActionResult Create()
         {
-            ViewBag.CustomerID = new SelectList(db.Customers, "ID", "FirstName");
+            ViewBag.UserID = new SelectList(db.Users, "ID", "FirstName");
             ViewBag.DayID = new SelectList(db.PickUpDays, "ID", "Day");
             return View();
         }
@@ -53,12 +56,13 @@ namespace TCA_Project.Controllers
         {
             if (ModelState.IsValid)
             {
+                address.UserID = User.Identity.GetUserId();
                 db.Addresses.Add(address);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
 
-            ViewBag.CustomerID = new SelectList(db.Customers, "ID", "FirstName", address.CustomerID);
+            ViewBag.UserID = new SelectList(db.Users, "ID", "FirstName", address.UserID);
             ViewBag.DayID = new SelectList(db.PickUpDays, "ID", "Day", address.DayID);
             return View(address);
         }
@@ -75,7 +79,7 @@ namespace TCA_Project.Controllers
             {
                 return HttpNotFound();
             }
-            ViewBag.CustomerID = new SelectList(db.Customers, "ID", "FirstName", address.CustomerID);
+            ViewBag.UserID = new SelectList(db.Users, "ID", "FirstName", address.UserID);
             ViewBag.DayID = new SelectList(db.PickUpDays, "ID", "Day", address.DayID);
             return View(address);
         }
@@ -93,7 +97,7 @@ namespace TCA_Project.Controllers
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            ViewBag.CustomerID = new SelectList(db.Customers, "ID", "FirstName", address.CustomerID);
+            ViewBag.UserID = new SelectList(db.Users, "ID", "FirstName", address.UserID);
             ViewBag.DayID = new SelectList(db.PickUpDays, "ID", "Day", address.DayID);
             return View(address);
         }

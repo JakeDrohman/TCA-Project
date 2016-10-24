@@ -1,9 +1,7 @@
 ﻿@model IEnumerable<TCA_Project.Models.Address>
-
 @{
     ViewBag.Title = "Index";
 }
-
 <h2>Index</h2>
 
 <p>
@@ -12,7 +10,7 @@
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.Customer.FirstName)
+            @Html.DisplayNameFor(model => model.UserID)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.PickUpDay.Day)
@@ -32,10 +30,13 @@
         <th></th>
     </tr>
 
-@foreach (var item in Model) { if()
+@foreach (var item in Model)
+{
+        if (ViewBag.CurrentUserId.Equals(item.UserID))
+        {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.Customer.FirstName)
+            @Html.DisplayFor(modelItem => item.UserID)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.PickUpDay.Day)
@@ -53,11 +54,12 @@
             @Html.DisplayFor(modelItem => item.Zipcode)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
-            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+            @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.ID })
         </td>
     </tr>
-}
+        }
+    }
 
 </table>

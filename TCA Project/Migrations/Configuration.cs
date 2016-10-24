@@ -4,6 +4,7 @@ namespace TCA_Project.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using TCA_Project.Models;
 
     internal sealed class Configuration : DbMigrationsConfiguration<TCA_Project.Models.ApplicationDbContext>
     {
