@@ -84,9 +84,37 @@ a.btn.btn-primary.btn-lg{
 
 
 
+#map {
+  height: 400px;
+  width: 50%;
+ }
 
 
 
+
+/*#map {
+  height: 100%;
+}*/
+/* Optional: Makes the sample page fill the window. */
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+#floating-panel {
+  /*position: absolute;*/
+  width: 40%;
+  top: 10px;
+  /*left: 25%;*/
+  z-index: 5;
+  background-color: #fff;
+  padding: 5px;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  /*padding-left: 100px;*/
+}
 
 /*.btn-primary, .btn-primary:hover {
     background-image: -webkit-linear-gradient(#e72510, #d9230f 6%, #cb210e);
