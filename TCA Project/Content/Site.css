@@ -84,9 +84,28 @@ a.btn.btn-primary.btn-lg{
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #map {
   height: 400px;
-  width: 50%;
+  width: 50%;  float: left;
  }
 
 
@@ -115,6 +134,125 @@ html, body {
   line-height: 30px;
   /*padding-left: 100px;*/
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#right-panel {
+  font-family: 'Roboto','sans-serif';
+  line-height: 30px;
+  padding-left: 10px;
+}
+
+#right-panel select, #right-panel input {
+  font-size: 15px;
+}
+
+#right-panel select {
+  width: 100%;
+}
+
+#right-panel i {
+  font-size: 12px;
+}
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+/*#map {
+  height: 100%;
+
+  width: 70%;
+  height: 100%;*/
+}
+#right-panel {
+      position: absolute;
+  margin: 20px;
+  border-width: 2px;
+  width: 20%;
+  height: 400px;
+  float: left;
+  text-align: left;
+  padding-top: 0;
+}
+#directions-panel {
+      /*position: absolute;*/
+  margin-top: 10px;
+  background-color: #FFEE77;
+  padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*.btn-primary, .btn-primary:hover {
     background-image: -webkit-linear-gradient(#e72510, #d9230f 6%, #cb210e);

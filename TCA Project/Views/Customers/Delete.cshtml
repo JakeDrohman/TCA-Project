@@ -1,11 +1,9 @@
 ﻿@model TCA_Project.Models.Customer
-
 @{
     ViewBag.Title = "Delete";
 }
-
+<br />  <br />
 <h2>Delete</h2>
-
 <h3>Are you sure you want to delete this?</h3>
 <div>
     <h4>Customer</h4>
@@ -14,46 +12,36 @@
         <dt>
             @Html.DisplayNameFor(model => model.FirstName)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.FirstName)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.LastName)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.LastName)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.PhoneNumber)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.PhoneNumber)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Email)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Email)
         </dd>
-
         <dt>
             @Html.DisplayNameFor(model => model.Balance)
         </dt>
-
         <dd>
             @Html.DisplayFor(model => model.Balance)
         </dd>
-
     </dl>
-
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">

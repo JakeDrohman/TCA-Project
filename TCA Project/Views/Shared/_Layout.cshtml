@@ -6,8 +6,11 @@
     <title>@ViewBag.Title - Dynamic Disposal</title>
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
-   
+
 </head>
+
+
+
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -29,115 +32,28 @@
             </div>
         </div>
     </div>
+
+
+
     <div class="container body-content">
+        <br />  <br />
         @RenderBody()
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
-    @Scripts.Render("~/Scripts/mapapi.js")
-    @RenderSection("scripts", required: false)
-
-
-
+        @Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")
+        @*@RenderSection("scripts", required: false)
+        @Scripts.Render("~/Scripts/mapapi.js")*@
         <br />
-        <br/>
+        <br />
 
-        <center><div id="map"></div></center>
-        
+
     </div>
-
-
-
-
-
-
-
-
-    <center><div id="floating-panel">
-        <b>Start: </b>
-        <select id="start">
-            <option value="chicago, il">Chicago</option>
-            <option value="st louis, mo">St Louis</option>
-            <option value="joplin, mo">Joplin, MO</option>
-            <option value="oklahoma city, ok">Oklahoma City</option>
-            <option value="amarillo, tx">Amarillo</option>
-            <option value="gallup, nm">Gallup, NM</option>
-            <option value="flagstaff, az">Flagstaff, AZ</option>
-            <option value="winona, az">Winona</option>
-            <option value="kingman, az">Kingman</option>
-            <option value="barstow, ca">Barstow</option>
-            <option value="san bernardino, ca">San Bernardino</option>
-            <option value="los angeles, ca">Los Angeles</option>
-        </select>
-        <b>End: </b>
-        <select id="end">
-            <option value="chicago, il">Chicago</option>
-            <option value="st louis, mo">St Louis</option>
-            <option value="joplin, mo">Joplin, MO</option>
-            <option value="oklahoma city, ok">Oklahoma City</option>
-            <option value="amarillo, tx">Amarillo</option>
-            <option value="gallup, nm">Gallup, NM</option>
-            <option value="flagstaff, az">Flagstaff, AZ</option>
-            <option value="winona, az">Winona</option>
-            <option value="kingman, az">Kingman</option>
-            <option value="barstow, ca">Barstow</option>
-            <option value="san bernardino, ca">San Bernardino</option>
-            <option value="los angeles, ca">Los Angeles</option>
-        </select>
-    </div></center>
-    <center>
-    <div id="map"></div>
-
-    <script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDqV1QIBzhA-7EF1MmpWuMCYZ6sfvL-kA&callback=initMap">
-    </script></center>
-
-
-
-    <footer>
-        <p>&copy; @DateTime.Now.Year - Dynamic Disposal, Milwaukee, WI</p>
-    </footer>
-
-
-
-    @*<div id="map"></div>*@
-    <!-- Replace the value of the key parameter with your own API key. -->
-    @*<script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDqV1QIBzhA-7EF1MmpWuMCYZ6sfvL-kA&callback=initMap">
-    </script>*@
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-     @* function initMap() {
-        var uluru = {lat: -25.363, lng: 131.044};
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
-          center: uluru
-        });
-        var marker = new google.maps.Marker({
-          position: uluru,
-          map: map
-        });
-      }
-    </script>*@
-    @*<script async defer
-            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDqV1QIBzhA-7EF1MmpWuMCYZ6sfvL-kA&callback=initMap">
-    </script>*@
+    <div>
+        <footer>
+            <center>
+                <p>&copy; @DateTime.Now.Year - Dynamic Disposal, Milwaukee, WI</p>
+            </center>
+        </footer>
+    </div>
 
 </body>
 
@@ -166,6 +82,11 @@
 
 
 
+@*<div id="map"></div>*@
+<!-- Replace the value of the key parameter with your own API key. -->
+@*<script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDqV1QIBzhA-7EF1MmpWuMCYZ6sfvL-kA&callback=initMap">
+    </script>*@
 
 
 
@@ -174,9 +95,232 @@
 
 
 
-@*<div id="map"></div>
-<script>
-      function initMap() {
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<center>
+        <div class="col-md-1"></div>
+        <div id="map" , class="col-md-6"></div>
+        <div id="right-panel" , class="col-md-4">
+            <div>
+                <b>Start:</b>
+                <select id="start">
+                    @{ string headquarters = "333 N Plankinton Ave, Milwaukee, WI 53203"; }
+                    @{ var routeStops = new List<string>();
+                        routeStops.Add("1219 W Greenfield Ave, Milwaukee, WI 53204");
+                        routeStops.Add("436 S 67th St, Milwaukee, WI 53214");
+                        routeStops.Add("3137 S 105th St, West Allis, WI 53227");
+                    }
+
+                    <option value="@headquarters">Headquarters</option>
+                </select>
+                <br>
+                <b>Waypoints:</b> <br>
+                <i>(Ctrl+Click or Cmd+Click for multiple selection)</i> <br>
+                <select multiple id="waypoints">
+
+                    @for (int i = 0; i < routeStops.Count; i++)
+                    {
+                        <option value="@routeStops[i]">Customer @(i + 1) </option>
+                    }
+
+                </select>
+                <br>
+                <b>End:</b>
+                <select id="end">
+                    <option value="@headquarters">Headquarters</option>
+                </select>
+                <br>
+                <input type="submit" id="submit">
+            </div>
+            <div id="directions-panel"></div>
+        </div>
+        <div class="col-md-4"></div>
+
+
+
+        <script async defer
+                src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDqV1QIBzhA-7EF1MmpWuMCYZ6sfvL-kA&callback=initMap">
+        </script>
+    </center>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*for (var i = 0; i < 5; i++) {
+
+        var myLatLng = { lat: document.getElementById('lat').value, lng: document.getElementById('lat').value };
+
+    var marker = new google.maps.Marker({
+        position: myLatLng,
+        map: map,
+        title: 'Hello World!'*@
+
+
+
+
+
+
+
+
+
+
+
+@*<b>Markers:</b>
+
+    @{var newlat = 42.872470; var newlng = 42.872470; }
+    <select multiple id="lat">
+        @for (int i = 0; i < 5; i++)
+        {
+            <option value="@(newlat+i)">LAT</option>
+
+        }
+
+    </select>
+
+    <select multiple id="lng">
+        @for (int i = 0; i < 5; i++)
+        {
+            <option value="@(newlng+i)">LNG</option>
+
+        }
+
+    </select>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@* function initMap() {
         var uluru = {lat: -25.363, lng: 131.044};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 4,
@@ -187,39 +331,113 @@
           map: map
         });
       }
-</script>
-<script async defer
-        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDqV1QIBzhA-7EF1MmpWuMCYZ6sfvL-kA&callback=initMap">
-</script>*@
+    </script>*@
+@*<script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDqV1QIBzhA-7EF1MmpWuMCYZ6sfvL-kA&callback=initMap">
+    </script>*@
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@*<select id="lng">
+        <option value="-87.906006">LNG</option>
+    </select>
+    <input type="submit" id="submit">
+
+    <select id="lat">
+        <option value="42.972470">LAT</option>
+    </select>
+    <select id="lng">
+        <option value="-87.806006">LNG</option>
+    </select>*@
+
+
+
+
+
+
+
+
+@*@{
+
+
+        var customerOne = new double[2];
+        var customerTwo = new double[2];
+        var customerThree = new double[2];
+        var customers = new double[][] { customerOne, customerTwo, customerThree };
+        customers[0][0] = 42.872470;
+        customers[0][1] = -87.906006;
+        customers[1][0] = 42.972470;
+        customers[1][1] = -87.926006;
+        customers[2][0] = 42.772470;
+        customers[2][1] = -87.806006;
+
+
+
+    }*@
+
+
+
+
+
+
+@*<div id="map"></div>
+    <script>
+          function initMap() {
+            var uluru = {lat: -25.363, lng: 131.044};
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 4,
+              center: uluru
+            });
+            var marker = new google.maps.Marker({
+              position: uluru,
+              map: map
+            });
+          }
+    </script>
+    <script async defer
+            src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDqV1QIBzhA-7EF1MmpWuMCYZ6sfvL-kA&callback=initMap">
+    </script>*@
 
 
 
 @*<script type="text/javascript">
 
 
-   $(document).ready(function () {
-     initialize();
-   });
-   function initMap() {
-     var mapOptions = {
-         center: new google.maps.LatLng(43.033920, -87.912569),
-       zoom: 10,
-       mapTypeId: google.maps.MapTypeId.ROADMAP
-     };
-     var map = new google.maps.Map(document.getElementById("map_canvas"),
-       mapOptions);
-     // create a marker
-     var latlng = new google.maps.LatLng(43.033920, -87.912569);
-     var marker = new google.maps.Marker({
-       position: latlng,
-       map: map,
-       title: 'My Place'
-     });
-   }
-</script>*@ 
+       $(document).ready(function () {
+         initialize();
+       });
+       function initMap() {
+         var mapOptions = {
+             center: new google.maps.LatLng(43.033920, -87.912569),
+           zoom: 10,
+           mapTypeId: google.maps.MapTypeId.ROADMAP
+         };
+         var map = new google.maps.Map(document.getElementById("map_canvas"),
+           mapOptions);
+         // create a marker
+         var latlng = new google.maps.LatLng(43.033920, -87.912569);
+         var marker = new google.maps.Marker({
+           position: latlng,
+           map: map,
+           title: 'My Place'
+         });
+       }
+    </script>*@
 
 
 
 
 @*<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBDqV1QIBzhA-7EF1MmpWuMCYZ6sfvL-kA&callback=initMap"
-        type="text/javascript"></script>*@
+    type="text/javascript"></script>*@
